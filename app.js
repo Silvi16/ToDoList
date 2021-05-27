@@ -6,7 +6,7 @@ const app = express()
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended: true}))
 
-let newItem = ''
+let newItems = ['Buy food','Cook food', 'Eat food']
 
 app.get('/', (req, res) => {
     let today = new Date()
@@ -20,12 +20,13 @@ app.get('/', (req, res) => {
 
     res.render('list', {
         day: day,
-        newListItem: newItem
+        newListItems: newItems
     })
 })
 
 app.post('/', (req, res) => {
     newItem = req.body.newItem
+    newItems.push(newItem)
     res.redirect('/')
 })
 
