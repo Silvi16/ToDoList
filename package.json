@@ -1,0 +1,19 @@
+{
+  "name": "todolist-v1",
+  "version": "1.0.0",
+  "description": "my first to do list using ejs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "dev": "nodemon app"
+  },
+  "author": "Silvia Krajnakova",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
