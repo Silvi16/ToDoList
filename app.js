@@ -27,19 +27,14 @@ app.get('/', (req, res) => {
 })
 
 app.get('/work', (req, res) => {
-
     res.render('list', {
         listTitle: 'Work List',
         newListItems: workItems
     })
 })
 
-app.post('/work', (req, res) => {
-    
-})
 
 app.post('/', (req, res) => {
-
     if (req.body.list === 'Work') {
         let workItem = req.body.newItem
         workItems.push(workItem)
@@ -49,7 +44,6 @@ app.post('/', (req, res) => {
         newItems.push(newItem)
         res.redirect('/')
     }
-
 })
 
 
