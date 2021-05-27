@@ -5,8 +5,10 @@ const app = express()
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended: true}))
+app.use(express.static('public'))
 
 let newItems = ['Buy food','Cook food', 'Eat food']
+let workItems = []
 
 app.get('/', (req, res) => {
     let today = new Date()
@@ -19,15 +21,35 @@ app.get('/', (req, res) => {
     let day = today.toLocaleDateString('en-US', options)
 
     res.render('list', {
-        day: day,
+        listTitle: day,
         newListItems: newItems
     })
 })
 
+app.get('/work', (req, res) => {
+
+    res.render('list', {
+        listTitle: 'Work List',
+        newListItems: workItems
+    })
+})
+
+app.post('/work', (req, res) => {
+    
+})
+
 app.post('/', (req, res) => {
-    newItem = req.body.newItem
-    newItems.push(newItem)
-    res.redirect('/')
+
+    if (req.body.list === 'Work') {
+        let workItem = req.body.newItem
+        workItems.push(workItem)
+        res.redirect('/work')
+    } else {
+        let newItem = req.body.newItem
+        newItems.push(newItem)
+        res.redirect('/')
+    }
+
 })
 
 
