@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <%- include('./partials/head.ejs') %>
+    <body style="background-image: -webkit-linear-gradient(65deg, #83e3ab 50%, #e4fdec 50%)">
+
+        <div class="box" id="heading" style="background-color: #259152;">
+            <h1> Work List</h1>
+        </div>
+
+        <div class="box" id="heading" style="background-color: #83e3ab;">
+            <h1> <%= listTitle %></h1>
+        </div>
+
+        <div class="box">
+            <% for (let i = 0; i < newWorkItems.length; i++) { %>
+            <div class="item">
+                <input type="checkbox">
+                <p><%= newWorkItems[i] %></p> 
+            </div>
+            <% } %>
+
+        <form action="/work" method="post" class="item">
+            <input type="text" placeholder="New Item" name="newItem" autocomplete="off">
+            <button type="submit" name="button" style="background-color: #83e3ab">+</button>
+        </form>
+
+    </div>
+    <%- include('./partials/footer.ejs') %>
+        <script src="" async defer></script>
+    </body>
+</html>
